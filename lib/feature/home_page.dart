@@ -17,7 +17,6 @@ class HomePage extends StatelessWidget {
 
 /// A widget representing the main content of the home page.
 class HomeView extends StatelessWidget {
-
   /// Creates a [HomeView] widget.
   const HomeView();
 
@@ -28,41 +27,42 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: SizedBox.expand(
         child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: viewModel.changeBackgroundColor,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          color: viewModel.backgroundColor,
-          child: Column(
-            children: [
-              const Spacer(),
+          behavior: HitTestBehavior.opaque,
+          onTap: viewModel.changeBackgroundColor,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            color: viewModel.backgroundColor,
+            child: Column(
+              children: [
+                const Spacer(),
 
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Hello there",
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: const Color.fromARGB(255, 0, 0, 0),
-                      fontWeight: FontWeight.bold,
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Hello there",
+                      style: Theme.of(context).textTheme.headlineMedium
+                          ?.copyWith(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
-                  ),
-                  const SizedBox(height: 12),
-                  ColorInfo(
-                    color: viewModel.backgroundColor,
-                    hex: viewModel.currentColorHex,
-                  ),
-                ],
-              ),
+                    const SizedBox(height: 12),
+                    ColorInfo(
+                      color: viewModel.backgroundColor,
+                      hex: viewModel.currentColorHex,
+                    ),
+                  ],
+                ),
 
-              const Spacer(),
+                const Spacer(),
 
-              ColorHistory(history: viewModel.history),
-            ],
+                ColorHistory(history: viewModel.history),
+              ],
+            ),
           ),
         ),
       ),
-      )
     );
   }
 }

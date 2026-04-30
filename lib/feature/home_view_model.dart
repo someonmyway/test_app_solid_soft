@@ -6,7 +6,7 @@ class HomeViewModel extends ChangeNotifier {
   static const _maxHistoryLength = 5;
   static const _hexLength = 8;
   static const _radixString = 16;
-  
+
   Color _backgroundColor = Colors.white;
   final List<Color> _history = [];
 
@@ -18,11 +18,13 @@ class HomeViewModel extends ChangeNotifier {
 
   /// Gets the current color in hex-adecimal format.
   String get currentColorHex {
-    return '#${_backgroundColor
-    .toARGB32()
-    .toRadixString(_radixString)
-    .padLeft(_hexLength, '0')
-    .toUpperCase()}';
+    final hex = _backgroundColor
+        .toARGB32()
+        .toRadixString(_radixString)
+        .padLeft(_hexLength, '0')
+        .toUpperCase();
+
+    return '#$hex';
   }
 
   /// Changes the background color to a random color.

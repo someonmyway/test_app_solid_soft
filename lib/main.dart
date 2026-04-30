@@ -7,7 +7,6 @@ void main() {
 
 /// A widget representing the main application.
 class Main extends StatelessWidget {
-
   /// Creates a [Main] widget.
   const Main({super.key});
 
